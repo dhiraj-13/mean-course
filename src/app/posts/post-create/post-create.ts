@@ -4,11 +4,14 @@ import { Component } from '@angular/core';
   selector: 'app-post-create',
   templateUrl: './post-create.html',
   standalone: false,
+  styleUrl: './post-create.css'
 })
 export class PostCreate {
+  enteredText = '';
   newPost = 'NO CONTENT';
 
   onAddPost() {
-    this.newPost = 'You will get Everything Soon';
+    // console.dir(postInput);
+    this.newPost = this.enteredText;
   }
 }
