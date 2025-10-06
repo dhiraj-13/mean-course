@@ -15,11 +15,14 @@ export class PostService {
     // return [...this.posts];
     // return this.posts;
     this.http
-      .get<{ message: string; post: Post[] }>('http://localhost:3000/api/posts')
+      .get<{ message: string; posts: Post[] }>(
+        'http://localhost:3000/api/posts'
+      )
       .subscribe((postData) => {
-        this.posts = postData.post;
-        console.log('this.data', postData, this.posts);
-        // if (this.posts) this.postSub.next([...this.posts]);
+        // this.posts = [];
+        this.posts = postData.posts;
+        // console.log('this.data', postData, this.posts);
+        this.postSub.next([...this.posts]);
       });
   }
 
