@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderComponent } from './header/header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { browseranimationmodule }
 @NgModule({
   declarations: [AppComponent, PostCreate, HeaderComponent, PostListComponent],
@@ -23,6 +24,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [provideAnimationsAsync()],

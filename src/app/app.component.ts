@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { Post } from './posts/post.model';
 // import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,10 +12,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'mean-course';
   // posts = [];
-  posts: any = [];
+  // posts: any = [];
+  // posts: any[] = [];
+  // posts: Post[] = [];
 
-  onAddpost(post: any) {
-    this.posts.push(post);
-    console.log('posts', post, this.posts);
-  }
+  // onAddpost(post: any) {
+  //   this.posts.push(post);
+  //   console.log('posts', post, this.posts);
+  // }
 }
