@@ -1,8 +1,21 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+const mongoose = require("mongoose");
+
+const Post = require("./models/post");
 
 const app = express();
 
+mongoose
+  .connect(
+    "mongodb+srv://dhirajchhabria4598_db_user:qlC8WnbwCZp7jH2U@cluster0.23gqtjg.mongodb.net/node-angular?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("Connected To Database!");
+  })
+  .catch(() => {
+    console.log("Database Connection Failed");
+  });
 app.use(bodyparser.json());
 
 app.use((req, res, next) => {
@@ -25,10 +38,16 @@ app.use((req, res, next) => {
 // });
 
 app.post("/api/posts", (req, res, next) => {
-  const post = req.body;
+  console.log("request is", req);
+  // const post = req.body;
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content,
+  });
   console.log(post);
+  post.save();
   res.status(201).json({
-    message:'Post Added Successfully'
+    message: "Post Added Successfully",
   });
 });
 
