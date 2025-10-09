@@ -51,23 +51,29 @@ app.post("/api/posts", (req, res, next) => {
   });
 });
 
-app.use("/api/posts", (req, res, next) => {
-  const posts = [
-    {
-      id: "sdssd",
-      title: "This is title 1",
-      content: "something something cominf from node",
-    },
-    {
-      id: "werrwer",
-      title: "This is title 3",
-      content: "anothterthing another thing cominf from node",
-    },
-  ];
-  res.status(200).json({
-    message: "Fetched Data Successfully!",
-    posts: posts,
+// app.use("/api/posts", (req, res, next) => {
+app.get("/api/posts", (req, res, next) => {
+  // const posts = [
+  //   {
+  //     id: "sdssd",
+  //     title: "This is title 1",
+  //     content: "something something cominf from node",
+  //   },
+  //   {
+  //     id: "werrwer",
+  //     title: "This is title 3",
+  //     content: "anothterthing another thing cominf from node",
+  //   },
+  // ];
+  Post.find().then((documents) => {
+    // console.log("document is", document);
+    res.status(200).json({
+      message: "Fetched Data Successfully!",
+      posts: documents,
+    });
   });
+  // .catch( )
+
   //   next();
 });
 
