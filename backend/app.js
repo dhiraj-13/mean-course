@@ -22,7 +22,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
 
   res.setHeader(
@@ -77,4 +77,11 @@ app.get("/api/posts", (req, res, next) => {
   //   next();
 });
 
+app.delete("/api/posts/:id", (req, res, next) => {
+  // Post.deleteOne
+  console.log(req.params.id);
+  res.status(200).json({ message: "Deleted Sucessfully!" });
+});
+
 module.exports = app;
+ 
